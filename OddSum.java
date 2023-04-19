@@ -5,16 +5,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
+		int count = 1;
 		Scanner scanner = new Scanner(System.in);
-		int counter = 0;
 		int testcases = scanner.nextInt();
 		while (testcases > 0) {
-			int sum = 0;
 			int begin = scanner.nextInt();
 			int end = scanner.nextInt();
-			for (int i = begin; i <= end; i++) if (i % 2 != 0) sum += i;
-			System.out.printf("Case %d: %d\n", ++counter, sum);
-			sum = 0;
+			System.out.printf("Case %d: %d\n", count++, IntStream.rangeClosed(begin, end).filter(e -> e%2 != 0).sum());
 			testcases--;
 		}
 		scanner.close();
